@@ -496,3 +496,48 @@ margin-top:15px;
 line-height:1.8;
 color:#d8d8d8;
 }
+#resume{
+    padding:100px 10%;
+    text-align:center;
+}
+
+.resume-card{
+    max-width:600px;
+    margin:auto;
+    background:#1d1d1d;
+    padding:40px;
+    border-radius:20px;
+    border:2px solid transparent;
+    transition:.4s;
+}
+
+.resume-card:hover{
+    border-color:#00e5ff;
+    box-shadow:0 0 25px rgba(0,229,255,.5);
+}
+
+.resume-card h2{
+    color:#00e5ff;
+    margin-bottom:20px;
+}
+
+.resume-card p{
+    color:#d8d8d8;
+    line-height:1.8;
+}
+
+.resume-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:15px 35px;
+    background:#00e5ff;
+    color:#000;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.resume-btn:hover{
+    background:white;
+}
