@@ -457,3 +457,42 @@ line-height:1.8;
     color:#00e5ff;
     font-weight:bold;
 }
+#experience{
+padding:100px 10%;
+}
+
+.experience-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.experience-card{
+background:#1d1d1d;
+padding:30px;
+border-radius:20px;
+border-left:6px solid #00e5ff;
+transition:.4s;
+}
+
+.experience-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,229,255,.5);
+}
+
+.experience-card h2{
+color:#00e5ff;
+margin-bottom:15px;
+}
+
+.experience-card span{
+color:#00e5ff;
+font-weight:bold;
+}
+
+.experience-card p{
+margin-top:15px;
+line-height:1.8;
+color:#d8d8d8;
+}
