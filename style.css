@@ -317,3 +317,100 @@ transition:.3s;
 .buttons a:hover{
 background:white;
 }
+#education{
+
+padding:100px 10%;
+
+}
+
+.timeline{
+
+position:relative;
+
+margin-top:50px;
+
+border-left:4px solid #00e5ff;
+
+padding-left:40px;
+
+}
+
+.timeline-item{
+
+position:relative;
+
+margin-bottom:50px;
+
+}
+
+.circle{
+
+position:absolute;
+
+left:-52px;
+
+top:5px;
+
+width:20px;
+
+height:20px;
+
+background:#00e5ff;
+
+border-radius:50%;
+
+box-shadow:0 0 20px #00e5ff;
+
+}
+
+.timeline-content{
+
+background:#1e1e1e;
+
+padding:25px;
+
+border-radius:15px;
+
+transition:.4s;
+
+}
+
+.timeline-content:hover{
+
+transform:translateX(10px);
+
+box-shadow:0 0 25px rgba(0,229,255,.4);
+
+}
+
+.timeline-content h2{
+
+color:#00e5ff;
+
+margin-bottom:10px;
+
+}
+
+.timeline-content h3{
+
+color:white;
+
+margin-bottom:10px;
+
+}
+
+.timeline-content span{
+
+color:#00e5ff;
+
+font-weight:bold;
+
+}
+
+.timeline-content p{
+
+color:#d5d5d5;
+
+line-height:1.8;
+
+}
