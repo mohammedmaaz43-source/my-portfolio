@@ -137,7 +137,6 @@ section h1{
 section {
     opacity:0;
     transform:translateY(60px);
-    transition:1s;
 }
 
 
