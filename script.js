@@ -79,7 +79,7 @@ function typeEffect() {
 }
 
 AOS.init({
-    duration:1000;
+    duration:1000,
     once:true
 });
 
