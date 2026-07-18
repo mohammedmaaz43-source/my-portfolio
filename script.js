@@ -78,4 +78,9 @@ function typeEffect() {
     setTimeout(typeEffect, isDeleting ? 50 : 120);
 }
 
+AOS.init({
+    duration:1000;
+    once:true
+});
+
 typeEffect();
