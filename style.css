@@ -129,3 +129,12 @@ section h1{
     transform:translateY(-10px);
     background:#334155;
 }
+section {
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s;
+}
+#home {
+    opacity:1;
+    transform:translateY(0);
+}
