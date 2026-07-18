@@ -29,3 +29,53 @@ window.addEventListener("scroll", ()=>{
     });
 
 });
+
+const text = [
+    "Cyber Security Student",
+    "Java Developer",
+    "Python Developer",
+    "Web Developer"
+];
+
+let index = 0;
+let charIndex = 0;
+let currentText = "";
+let isDeleting = false;
+
+function typeEffect() {
+
+    currentText = text[index];
+
+    if (!isDeleting) {
+
+        document.getElementById("typing").textContent =
+            currentText.substring(0, charIndex);
+
+        charIndex++;
+
+        if (charIndex > currentText.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 1200);
+            return;
+        }
+
+    } else {
+
+        document.getElementById("typing").textContent =
+            currentText.substring(0, charIndex);
+
+        charIndex--;
+
+        if (charIndex < 0) {
+            isDeleting = false;
+            index++;
+
+            if (index == text.length)
+                index = 0;
+        }
+    }
+
+    setTimeout(typeEffect, isDeleting ? 50 : 120);
+}
+
+typeEffect();
