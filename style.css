@@ -541,3 +541,47 @@ color:#d8d8d8;
 .resume-btn:hover{
     background:white;
 }
+#contact{
+    padding:100px 10%;
+    text-align:center;
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.contact-box{
+    background:#1d1d1d;
+    padding:30px;
+    border-radius:15px;
+    transition:.4s;
+    border:2px solid transparent;
+}
+
+.contact-box:hover{
+    transform:translateY(-8px);
+    border-color:#00e5ff;
+    box-shadow:0 0 20px rgba(0,229,255,.5);
+}
+
+.contact-box h2{
+    color:#00e5ff;
+    margin-bottom:15px;
+}
+
+.contact-box p{
+    color:#ddd;
+    word-break:break-word;
+}
+
+.contact-box a{
+    color:white;
+    text-decoration:none;
+}
+
+.contact-box a:hover{
+    color:#00e5ff;
+}
