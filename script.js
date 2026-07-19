@@ -1,98 +1,263 @@
-// Smooth scroll for navigation
-document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", function(e){
-        e.preventDefault();
+/* ==========================================
+        TYPING ANIMATION
+========================================== */
 
-        const target = document.querySelector(this.getAttribute("href"));
+const typingElement = document.getElementById("typing");
 
-        target.scrollIntoView({
-            behavior:"smooth"
-        });
-    });
-});
+if (typingElement) {
 
-// Reveal animation
-const sections = document.querySelectorAll("section");
-
-window.addEventListener("scroll", ()=>{
-
-    sections.forEach(section=>{
-
-        const top = section.getBoundingClientRect().top;
-
-        if(top < window.innerHeight-100){
-
-            section.style.opacity="1";
-            section.style.transform="translateY(0)";
-        }
-
-    });
-
-});
-
-const text = [
-    "Cyber Security Student",
-    "Java Developer",
-    "Python Developer",
-    "Web Developer"
+const words = [
+"Cyber Security Student",
+"Java Developer",
+"Python Developer",
+"Web Developer"
 ];
 
-let index = 0;
+let wordIndex = 0;
 let charIndex = 0;
-let currentText = "";
-let isDeleting = false;
+let deleting = false;
 
-function typeEffect() {
+function typingEffect() {
 
-    currentText = text[index];
+let currentWord = words[wordIndex];
 
-    if (!isDeleting) {
+if (!deleting) {
 
-        document.getElementById("typing").textContent =
-            currentText.substring(0, charIndex);
+typingElement.textContent =
+currentWord.substring(0, charIndex);
 
-        charIndex++;
+charIndex++;
 
-        if (charIndex > currentText.length) {
-            isDeleting = true;
-            setTimeout(typeEffect, 1200);
-            return;
-        }
+if (charIndex > currentWord.length) {
 
-    } else {
+deleting = true;
 
-        document.getElementById("typing").textContent =
-            currentText.substring(0, charIndex);
+setTimeout(typingEffect, 1500);
 
-        charIndex--;
+return;
 
-        if (charIndex < 0) {
-            isDeleting = false;
-            index++;
-
-            if (index == text.length)
-                index = 0;
-        }
-    }
-
-    setTimeout(typeEffect, isDeleting ? 50 : 120);
 }
 
-AOS.init({
-    duration:1000,
-    once:true
+} else {
+
+typingElement.textContent =
+currentWord.substring(0, charIndex);
+
+charIndex--;
+
+if (charIndex < 0) {
+
+deleting = false;
+
+wordIndex++;
+
+if (wordIndex >= words.length)
+wordIndex = 0;
+
+}
+
+}
+
+setTimeout(typingEffect, deleting ? 50 : 120);
+
+}
+
+typingEffect();
+
+}
+
+/* ==========================================
+        DARK / LIGHT MODE
+========================================== */
+
+const themeButton = document.getElementById("theme-toggle");
+
+if (themeButton) {
+
+themeButton.addEventListener("click", () => {
+
+document.body.classList.toggle("light-mode");
+
+if(document.body.classList.contains("light-mode")){
+
+themeButton.innerHTML="☀️";
+
+localStorage.setItem("theme","light");
+
+}else{
+
+themeButton.innerHTML="🌙";
+
+localStorage.setItem("theme","dark");
+
+}
+
 });
 
-const themeBtn = document.getElementById("theme-toggle");
+}
 
-themeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
+/* ==========================================
+        LOAD SAVED THEME
+========================================== */
 
-    if(document.body.classList.contains("light-mode")){
-        themeBtn.innerHTML = "☀️";
-    }else{
-        themeBtn.innerHTML = "🌙";
-    }
+const savedTheme = localStorage.getItem("theme");
+
+if(savedTheme==="light"){
+
+document.body.classList.add("light-mode");
+
+if(themeButton){
+
+themeButton.innerHTML="☀️";
+
+}
+
+}
+/* ==========================================
+        ACTIVE NAVIGATION
+========================================== */
+
+const currentPage = window.location.pathname.split("/").pop();
+
+const navLinks = document.querySelectorAll("nav ul li a");
+
+navLinks.forEach(link => {
+
+const linkPage = link.getAttribute("href");
+
+if(linkPage === currentPage || (currentPage === "" && linkPage === "index.html")){
+
+link.classList.add("active");
+
+}
+
 });
 
-typeEffect();
+/* ==========================================
+        PAGE FADE ANIMATION
+========================================== */
+
+window.addEventListener("load",()=>{
+
+document.body.style.opacity="0";
+
+setTimeout(()=>{
+
+document.body.style.transition="opacity .8s ease";
+
+document.body.style.opacity="1";
+
+},100);
+
+});
+
+/* ==========================================
+        SCROLL TO TOP BUTTON
+========================================== */
+
+const topButton = document.querySelector(".top-btn");
+
+if(topButton){
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>300){
+
+topButton.style.display="inline-block";
+
+}else{
+
+topButton.style.display="none";
+
+}
+
+});
+
+}
+
+/* ==========================================
+        IMAGE HOVER EFFECT
+========================================== */
+
+const images = document.querySelectorAll("img");
+
+images.forEach(image=>{
+
+image.addEventListener("mouseenter",()=>{
+
+image.style.transform="scale(1.05)";
+
+});
+
+image.addEventListener("mouseleave",()=>{
+
+image.style.transform="scale(1)";
+
+});
+
+});
+
+/* ==========================================
+        CARD ANIMATION
+========================================== */
+
+const cards = document.querySelectorAll(
+".card,.project-card,.certificate-card,.experience-card,.resume-card,.contact-box"
+);
+
+cards.forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+
+card.style.transform="translateY(-10px)";
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="translateY(0)";
+
+});
+
+});
+
+/* ==========================================
+        BUTTON RIPPLE EFFECT
+========================================== */
+
+const buttons=document.querySelectorAll(".btn,.resume-btn");
+
+buttons.forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+button.style.transform="scale(.95)";
+
+setTimeout(()=>{
+
+button.style.transform="scale(1)";
+
+},150);
+
+});
+
+});
+
+/* ==========================================
+        PAGE TITLE EFFECT
+========================================== */
+
+document.title=document.title+" | Portfolio";
+
+/* ==========================================
+        CONSOLE MESSAGE
+========================================== */
+
+console.log("====================================");
+console.log(" Mohammed Maaz Portfolio Loaded ");
+console.log(" Developed using HTML CSS JavaScript ");
+console.log("====================================");
+
+/* ==========================================
+        END OF SCRIPT
+========================================== */
