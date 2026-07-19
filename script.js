@@ -258,6 +258,84 @@ console.log(" Mohammed Maaz Portfolio Loaded ");
 console.log(" Developed using HTML CSS JavaScript ");
 console.log("====================================");
 
+/* ===========================
+LOADER
+=========================== */
+
+window.addEventListener("load",function(){
+
+setTimeout(function(){
+
+document.getElementById("loader").style.opacity="0";
+
+setTimeout(function(){
+
+document.getElementById("loader").style.display="none";
+
+},800);
+
+},2000);
+
+});
+
+/* ===========================
+PROGRESS BAR
+=========================== */
+
+window.onscroll=function(){
+
+progressBar();
+
+scrollFunction();
+
+};
+
+function progressBar(){
+
+let winScroll=document.body.scrollTop||document.documentElement.scrollTop;
+
+let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+
+let scrolled=(winScroll/height)*100;
+
+document.getElementById("progress-bar").style.width=scrolled+"%";
+
+}
+
+/* ===========================
+BACK TO TOP
+=========================== */
+
+function scrollFunction(){
+
+let btn=document.getElementById("topBtn");
+
+if(document.body.scrollTop>200 || document.documentElement.scrollTop>200){
+
+btn.style.display="block";
+
+}
+
+else{
+
+btn.style.display="none";
+
+}
+
+}
+
+function topFunction(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
 /* ==========================================
         END OF SCRIPT
 ========================================== */
